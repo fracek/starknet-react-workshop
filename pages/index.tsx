@@ -5,6 +5,7 @@ import { BlockSection } from "../components/BlockSection";
 import { ConnectWallet } from "../components/ConnectWallet";
 import { CounterValue } from "../components/CounterValue";
 import { TransactionBuilder } from "../components/TransactionBuilder";
+import { TransactionStatus } from "../components/TransactionStatus";
 
 const Home: NextPage = () => {
   return (
@@ -20,6 +21,7 @@ const Home: NextPage = () => {
         <BlockSection />
         <CounterValue />
         <TransactionBuilder />
+        <TransactionStatus />
       </VStack>
     </>
   );

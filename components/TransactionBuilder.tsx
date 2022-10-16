@@ -7,7 +7,10 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { useStarknetExecute } from "@starknet-react/core";
+import {
+  useStarknetExecute,
+  useTransactionManager,
+} from "@starknet-react/core";
 import { useMemo, useReducer, useState } from "react";
 import { counterAddress } from "../lib/counter";
 
@@ -23,15 +26,25 @@ export function TransactionBuilder() {
     }));
   }, [state.transactions]);
 
-  const { execute } = useStarknetExecute({
+  const { execute, reset } = useStarknetExecute({
     calls,
-    metadata: {
-      name: "Increment Counter",
-    },
   });
+
+  const { addTransaction } = useTransactionManager();
 
   const handleAmountChange = (_: string, value: number) => {
     setAmount(value);
+  };
+
+  const handleSubmit = async () => {
+    const response = await execute();
+    addTransaction({
+      hash: response.transaction_hash,
+      metadata: {
+        name: `Increment Counter (${state.transactions.length} times)`,
+      },
+    });
+    reset();
   };
 
   return (
@@ -55,7 +68,7 @@ export function TransactionBuilder() {
           Add Tx
         </Button>
       </HStack>
-      <Button onClick={() => execute()}>Submit</Button>
+      <Button onClick={handleSubmit}>Submit</Button>
     </VStack>
   );
 }
