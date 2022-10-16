@@ -4,6 +4,7 @@ import Head from "next/head";
 import { BlockSection } from "../components/BlockSection";
 import { ConnectWallet } from "../components/ConnectWallet";
 import { CounterValue } from "../components/CounterValue";
+import { TransactionBuilder } from "../components/TransactionBuilder";
 
 const Home: NextPage = () => {
   return (
@@ -18,6 +19,7 @@ const Home: NextPage = () => {
         <ConnectWallet />
         <BlockSection />
         <CounterValue />
+        <TransactionBuilder />
       </VStack>
     </>
   );
