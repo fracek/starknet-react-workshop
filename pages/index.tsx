@@ -2,6 +2,7 @@ import { Box, Heading, VStack } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { BlockSection } from "../components/BlockSection";
+import { ConnectWallet } from "../components/ConnectWallet";
 import { CounterValue } from "../components/CounterValue";
 
 const Home: NextPage = () => {
@@ -14,6 +15,7 @@ const Home: NextPage = () => {
         <Box w="60rem" mx="auto">
           <Heading>StarkNet React Workshop</Heading>
         </Box>
+        <ConnectWallet />
         <BlockSection />
         <CounterValue />
       </VStack>
