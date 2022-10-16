@@ -1,6 +1,7 @@
 import { Box, Heading, VStack } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Head from "next/head";
+import { BlockSection } from "../components/BlockSection";
 
 const Home: NextPage = () => {
   return (
@@ -12,6 +13,7 @@ const Home: NextPage = () => {
         <Box w="60rem" mx="auto">
           <Heading>StarkNet React Workshop</Heading>
         </Box>
+        <BlockSection />
       </VStack>
     </>
   );
